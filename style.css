@@ -1,0 +1,422 @@
+:root{
+    --img-blur: 0px;
+    --text-color: #2C333E;
+    --text-dark-color: #755139;
+    --text-light-color: #755139;
+    --title-text-color: #2C333E;
+    --subtitle-text-color: #2C333E;
+    --icon-color: #d6a277;
+    --border-size: 0;
+    --border-color: #ebdccf;
+    --border-light-color: #ece3d7;
+    --primary-bg-color: #F5F5DC;
+    --secondary-bg-color: #F2EDD7;
+    --third-bg-color: #E8D6B9;
+    --fourth-bg-color: rgba(255, 255, 255, 0.4);
+    --footer-bg-color: rgba(201, 148, 96, 0.14);
+    --margin-bg-color: #333;
+    --btn-bg-color: rgba(0, 0, 0, 0);
+    --btn-text-color: #b9876c;
+    --btn-border-color: #e0d3c5;
+    --btn-dark-bg-color: #dab396;
+    --btn-dark-text-color: #fff;
+    --btn-dark-border-color: rgba(0, 0, 0, 0);
+    --font-size: 18px;
+    --common-margin-lr: 1.6rem;
+    --account-margin-lr: 0.6rem;
+    --calendar-margin-lr: 0.8rem;
+    --font-regular: rixrak-serif-pro;
+    --font-regular-spacing: -0.2px;
+    --font-gothic: rixrak-serif-pro;
+    --font-gothic-spacing: -0.2px;
+    --font-bold: rixrak-serif-pro;
+    --font-bold-weight: bold;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    scroll-behavior: smooth;
+    background: #333;
+    overflow-x: hidden; /* 컨테이너 내의 가로 스크롤을 숨깁니다. */
+    padding: 0;
+    margin: 0;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    padding: 0;
+    background-color: #ffdab9; /* Peach Fuzz 색상으로 바탕색 변경 */
+
+    color: var(--text-color);
+    background: var(--primary-bg-color);
+    -ms-overflow-style: none;
+    line-height: 2rem;
+    font-family: var(--font-regular), serif;
+    letter-spacing: var(--font-regular-spacing);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.04);
+}
+
+.main-photo {
+    position: relative;
+    height: auto;
+    display: flex;
+    object-fit: cover;
+}
+
+.main-photo-img {
+    position: relative;
+    opacity: 0; /* 초기에는 숨김 */
+    img {
+        width: 100%; /* 이미지의 너비를 부모 요소의 너비에 맞게 설정합니다. */
+        height: auto; /* 이미지의 높이는 자동으로 조정됩니다. */
+        object-fit: cover; /* 이미지가 요소에 적절히 맞추어지도록 설정합니다. */
+    }
+}
+
+.show-main-photo {
+    position: relative;
+    opacity: 1; /* 나타나는 애니메이션 */
+    transition: opacity 2s ease; /* 부드러운 페이드 인 애니메이션 설정 */
+}
+
+/* 푸터 요소를 가운데 정렬하고 투명도를 조절하는 스타일 */
+.greetings-wrap {
+    opacity: 0; /* 나타나는 애니메이션 */
+    margin: 1px 0;
+    padding: 40px 0;
+    transform: translateY(15%); /* 요소를 아래로 이동시킴 */
+    .text {
+        display: inline-block;
+        margin: 16px 1rem 1.2rem;
+        font-size: .9rem;
+    }
+}
+
+.show-greetings-wrap {
+    opacity: 1; /* 나타나는 애니메이션 */
+    transition: opacity 2s ease, transform 1s ease; /* 부드러운 페이드 인 애니메이션 설정 */
+    transform: translateY(0);
+}
+
+.m-title {
+    color: var(--title-text-color);
+    letter-spacing: .5px;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.m-subtitle {
+    font-size: .7rem;
+    color: var(--subtitle-text-color);
+    letter-spacing: 2px;
+    line-height: 20px;
+}
+
+.members-wrap {
+    padding: 1.2rem 0;
+    border-left: 0;
+    border-right: 0;
+    .relation{
+        font-size: 0.8rem;
+        color: var(--title-text-color);
+        opacity: 0.8;
+    }
+    .relation>span:last-child {
+        display: inline-block;
+        min-width: 2rem;
+        text-align: center;
+    }
+}
+
+
+.calendar-wrap {
+    padding: 3.6rem 0 3.8rem;
+    border-left: 0;
+    border-right: 0;
+    letter-spacing: 1px;
+    background: var(--secondary-bg-color);
+    background-image: var(--primary-bg-image);
+    opacity: 0; /* 나타나는 애니메이션 */
+    transform: translateY(15%); /* 요소를 아래로 이동시킴 */
+    .date{
+        font-size: 1.1rem;
+        line-height: 1.8rem;
+        letter-spacing: 5px;
+        color: var(--title-text-color);
+        opacity: 0.9;
+    }
+    .hours{
+        font-size: 0.9rem;
+        line-height: 2rem;
+        letter-spacing: 2px;
+        color: var(--title-text-color);
+        opacity: 0.9;
+    }
+    .ddays{
+        color: #ea7664;
+    }
+    span[heart]{
+        font-size: .8rem;
+        color: #ea7664;
+    }
+}
+
+.show-calendar-wrap {
+    opacity: 1; /* 나타나는 애니메이션 */
+    transition: opacity 2s ease, transform 1s ease; /* 부드러운 페이드 인 애니메이션 설정 */
+    transform: translateY(0);
+}
+
+.c-calendar {
+    padding: 0 var(--calendar-margin-lr);
+    margin: 0 36px;
+    border: 1px solid var(--primary-bg-color);
+    border-left: 0;
+    border-right: 0;
+    opacity: 0; /* 나타나는 애니메이션 */
+    transform: translateY(15%); /* 요소를 아래로 이동시킴 */
+}
+
+.show-c-calendar {
+    opacity: 1; /* 나타나는 애니메이션 */
+    transition: opacity 2s ease, transform 1s ease; /* 부드러운 페이드 인 애니메이션 설정 */
+    transform: translateY(0);
+}
+
+.c-calendar-eday {
+    color: #fff;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    >div {
+        margin: auto;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 30px;
+        background: var(--icon-color);
+    }
+}
+
+.c-calendar-table {
+    margin: auto;
+    width: 100%;
+    font-size: .9rem;
+    line-height: 2.375rem;
+    padding: 1.5rem 0;
+}
+
+.c-calendar-holiday, .c-calendar-table>tbody tr td:first-child, .c-calendar-table>thead tr th:first-child {
+    color: #c6472b;
+}
+
+.c-calendar-table>tbody tr td:first-child, .c-calendar-table>thead tr th:first-child {
+    color: #c6472b !important;
+}
+
+.contact-box {
+    margin: 0 auto;
+    max-width: 220px;
+    color: var(--btn-text-color);
+    border: 1px solid var(--btn-border-color);
+    border-radius: 32px;
+    text-align: center;
+    font-size: .85rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    svg {
+        width: 1.125rem;
+        height: 1.125rem;
+        margin-top: -2px;
+        fill: var(--icon-color);
+        vertical-align: middle;
+    }
+}
+
+.gallery-wrap {
+    opacity: 0; /* 나타나는 애니메이션 */
+    margin: 1px 0;
+    padding: 40px 0;
+    transform: translateY(15%); /* 요소를 아래로 이동시킴 */
+    .text {
+        display: inline-block;
+        margin: 16px 1rem 1.2rem;
+        font-size: .9rem;
+    }
+}
+
+.show-gallery-wrap {
+    opacity: 1; /* 나타나는 애니메이션 */
+    transition: opacity 2s ease, transform 2s ease; /* 부드러운 페이드 인 애니메이션 설정 */
+    transform: translateY(0);
+}
+
+.gallery-container {
+    width: 85%;
+    margin: auto;
+}
+
+.slick--visual {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.slick-slide {
+    img {
+        object-fit: cover;
+        width: 100%;
+    }
+}
+  
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 0.7rem;
+    background-color: var(--secondary-bg-color);
+    p {
+        margin: 20px 0; /* 텍스트와 아이콘 사이의 간격 */
+    }
+    i {
+        /* 아이콘 스타일 */
+    }
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4개의 컬럼을 동일한 너비로 설정합니다. */
+    gap: 25px; /* 각 박스 사이의 간격을 조절합니다. */
+    width: 70%;
+    margin: 50px auto;
+    opacity: 0; /* 나타나는 애니메이션 */
+    transform: translateY(15%); /* 요소를 아래로 이동시킴 */
+}
+
+.show-countdown{
+    opacity: 1; /* 나타나는 애니메이션 */
+    transition: opacity 2s ease, transform 2s ease; /* 부드러운 페이드 인 애니메이션 설정 */
+    transform: translateY(0);
+}
+
+.countdown-box {
+    /* 필요한 스타일을 적용합니다. */
+    background-color: var(--third-bg-color);
+    border-radius: 10px;
+    .countdown-num {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: var(--title-text-color);
+        margin-top: 8px;
+    }
+    .countdown-text {
+        font-size: .7rem;
+        color: var(--title-text-color);
+        margin-bottom: 5px;
+        opacity: 0.5;
+    }
+}
+
+.countdown-text {
+
+}
+
+
+.location-wrap {
+    margin: 18px 0 26px;
+}
+
+#map {
+    margin-bottom: 5px;
+    width: 100%;
+    height: 400px; /* 높이 지정 */
+    border: 1px solid #e0e0e0;
+}
+
+
+.wave-containers {
+    opacity: 1; /* 나타나는 애니메이션 */
+}
+
+.wave-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* 다른 요소보다 더 높은 z-index 값을 지정합니다. */
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+#wavePath1 {
+    fill: var(--primary-bg-color);
+    fill-opacity: 0.3; /* 두 번째 웨이브의 투명도 설정 */
+}
+
+#wavePath3 {
+    fill: var(--primary-bg-color);
+    fill-opacity: 0.4; /* 두 번째 웨이브의 투명도 설정 */
+}
+
+
+
+.m-button{
+    display: inline-block;
+    text-decoration: none;
+    height: 2rem;
+    line-height: 2rem;
+    background: #fff;
+    padding: 0 26px;
+    background: var(--btn-bg-color);
+    color: var(--btn-text-color);
+    border: 1px solid var(--btn-border-color);
+    border-radius: 32px;
+    font-size: .86rem;
+    font-weight: 400;
+    cursor: pointer;
+    letter-spacing: 0;
+    svg {
+        margin: -1px 2px 0;
+        height: .86rem;
+        width: .86rem;
+        vertical-align: middle;
+    }
+}
+
+@font-face {
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/Cafe24Supermagic-Bold-v1.0.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Danjo-bold-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Danjo-bold-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
