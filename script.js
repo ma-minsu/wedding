@@ -110,7 +110,7 @@ var prevDhour = null;
 var prevDminutes = null;
 var prevDseconds = null;
 function initializeCountdown() {
-    var targetDate = new Date(2024, 10, 2, 14, 20); // 월은 0부터 시작합니다. 11월은 10입니다.
+    var targetDate = new Date(2024, 8, 21, 12, 00); // 월은 0부터 시작합니다. 11월은 10입니다.
     
     countdown(function() {
         var currentDate = new Date()
